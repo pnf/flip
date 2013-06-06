@@ -14,3 +14,4 @@ libraryDependencies += "org.scala-lang" % "scala-swing" % "2.10.1"
 
 libraryDependencies += "com.kenai.nbpwr" % "com-sun-pdfview" % "1.0.5-201003191900"
 
+libraryDependencies += "org.apache.pdfbox" % "pdfbox" % "1.8.2"

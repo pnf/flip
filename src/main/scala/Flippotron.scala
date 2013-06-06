@@ -27,11 +27,13 @@ object Flippotron  extends Logging {
     val statusField = new TextField("",5) {editable = false}
     val flip = new Label()
     val smoother = new Smoother(file, { i : Int => publish(new StatusEvent(i))})
-    val numPages = smoother.numPages
+    val numPages = {
+      smoother.numPages
+    }
     val pageSlider = new Slider {
       min = 1
       max = numPages
-      preferredSize = new Dimension(500,20)
+      preferredSize = new Dimension(750,20)
     }
     val controlPanel = new BoxPanel(Orientation.Horizontal) {
       contents += positionField

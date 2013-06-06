@@ -10,4 +10,7 @@ project/boot/
 project/plugins/project/
 
 # Scala-IDE specific
-.scala_dependencies
+.scala_dependencies.ensime*
+*~
+.idea*
+.ensime*
