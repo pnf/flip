@@ -12,10 +12,10 @@ import scala.swing._
 private case class StatusEvent(i : Int) extends event.Event {}
 private case class StoppedFlippingEvent() extends event.Event {}
 
-object Flippotron  extends Logging {
+object Flippotron  extends App with Logging {
 
   var file : String = _
-  def main(args : Array[String]) {
+  override def main(args : Array[String]) {
     file = if(args.length>0) args(0) else "/home/pnf/Downloads/scala-swing-design"
     GUI.main(args)
   }
