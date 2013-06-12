@@ -1,7 +1,7 @@
 flip
 ====
 
-This is dual-purpose experiment.
+This is dual-purpose experiment, using both senses of the word _functional_:
 
 * Make a better pdf reader.
 
