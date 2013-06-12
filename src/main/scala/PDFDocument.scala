@@ -1,7 +1,6 @@
 package com.podsnap.flip
 import com.sun.pdfview.{PDFPage, PDFFile}
 import java.awt.image.BufferedImage
-import java.awt.Image
 import java.io._
 import java.nio.channels.FileChannel
 import javax.swing.ImageIcon
@@ -19,8 +18,8 @@ class PDFDocument(pdf : String) extends Iterable[Image] with Seq[Image] with Log
     raf.close()
     p
   }
-  private val h = pdffile.getPage(0).getBBox.getHeight.toInt
-  private val w = pdffile.getPage(0).getBBox.getWidth.toInt
+  val h = pdffile.getPage(0).getBBox.getHeight.toInt
+  val w = pdffile.getPage(0).getBBox.getWidth.toInt
   private val rect = new Rectangle(0,0,w,h)
 
   val numPages = pdffile.getNumPages()

@@ -23,7 +23,7 @@ class SeqF[A] (l : Seq[()=>A]) {
 }
 
 class ViewImprovements[A](v :SeqView[A,Iterable[_]]) extends Logging {
-  def scanLeftThatWorks[B](b0 : B)(f : (B,A)=>B) : SeqView[B,Seq[_]] = {
+  def scanLeftLazy[B](b0 : B)(f : (B,A)=>B) : SeqView[B,Seq[_]] = {
     // not doing this with real iterators
     class IterLite() {
       var b = b0
