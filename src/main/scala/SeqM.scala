@@ -10,6 +10,8 @@ import com.typesafe.scalalogging.slf4j.Logging
 class SeqF[A] (l : Seq[()=>A]) {
   def map[B](f : A =>B) = new SeqF(l.map( x => () => f(x())))
 
+  def take(n : Int) = new SeqF(l.take(n))
+
   // l.zipWithIndex returns sequence of pairs (()=>A,Int)
   // this.zipWithIndex returns sequence of functors yielding pairs (A,Int)
   def zipWithIndex = new SeqF( l.zipWithIndex.map( x => () => (x._1(),x._2) ) )
@@ -19,7 +21,7 @@ class SeqF[A] (l : Seq[()=>A]) {
     new SeqF[B](l2)
   }
   def values() = l.map(_())
-  def futs() : Seq[Future[A]] = l.tail.scanLeft( future{l.head.apply()} )  ( (f:Future[A],x:()=>A) =>  f.map( _ => x() ))
+  //def futs() : Seq[Future[A]] = l.tail.scanLeft( future{l.head.apply()} )  ( (f:Future[A],x:()=>A) =>  f.map( _ => x() ))
 }
 
 class ViewImprovements[A](v :SeqView[A,Iterable[_]]) extends Logging {
